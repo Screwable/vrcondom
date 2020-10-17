@@ -19,7 +19,7 @@ int trigger_event(uintptr_t _this, uintptr_t player, uintptr_t vrc_event, uint32
 		if (broadcast_type == 0 || broadcast_type == 4 || broadcast_type == 7)
 	{
 		//10 == SetGameObjectActive || 2 == AnimationBool || Op ? 2 == toggle 
-		if ((event_type == 10 || event_type == 2 || parameter_boolop == 2))
+		if (event_type == 10 || event_type == 2 || parameter_boolop == 2)
 			return NULL;
 
 	}
