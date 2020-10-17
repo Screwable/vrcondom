@@ -9,14 +9,16 @@ int trigger_event(uintptr_t _this, uintptr_t player, uintptr_t vrc_event, uint32
 	std::string parameter_string = il2cpp_string_chars_to_string(*(const char**)(vrc_event + 32)); //ParameterString (vrc_event + 0x20/32)
 	DWORD parameter_boolop = *(DWORD*)(vrc_event + 40); //VRC_EventHandler.VrcEventType (vrc_event + 0x28/40)
 	
+	//anti master dc
 	if (parameter_string != "empty string")
 	{
 		//14 == sendrpc || 19 == addhealth
 		if ((event_type == 14 || event_type == 19) && (parameter_string.length() > 75 || parameter_string.find("color") != std::string::npos))
 			return NULL;
 	}
-
-		if (broadcast_type == 0 || broadcast_type == 4 || broadcast_type == 7)
+	
+	//anti world triggers
+	if (broadcast_type == 0 || broadcast_type == 4 || broadcast_type == 7)
 	{
 		//10 == SetGameObjectActive || 2 == AnimationBool || Op ? 2 == toggle 
 		if (event_type == 10 || event_type == 2 || parameter_boolop == 2)
@@ -31,6 +33,8 @@ oneventphoton_fn original_onevent_photon = NULL;
 int on_event_photon(uintptr_t event_data)
 {
 	BYTE event_code = *(BYTE*)(event_data + 16);
+	
+	//anti ownership desync
 	if (event_code == 210 || event_code == 209) //210 and 209 are ownership_request and ownership_transfer, iirc
 		return NULL;
 
