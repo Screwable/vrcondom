@@ -7,7 +7,8 @@ int trigger_event(uintptr_t _this, uintptr_t player, uintptr_t vrc_event, uint32
 {
 	DWORD event_type = *(DWORD*)(vrc_event + 24); //VRC_EventHandler.VrcEventType (vrc_event + 0x18/24)
 	std::string parameter_string = il2cpp_string_chars_to_string(*(const char**)(vrc_event + 32)); //ParameterString (vrc_event + 0x20/32)
-
+	DWORD parameter_boolop = *(DWORD*)(vrc_event + 40); //VRC_EventHandler.VrcEventType (vrc_event + 0x28/40)
+	
 	if (parameter_string != "empty string")
 	{
 		//14 == sendrpc || 19 == addhealth
@@ -15,6 +16,14 @@ int trigger_event(uintptr_t _this, uintptr_t player, uintptr_t vrc_event, uint32
 			return NULL;
 	}
 
+		if (broadcast_type == 0 || broadcast_type == 4 || broadcast_type == 7)
+	{
+		//10 == SetGameObjectActive || 2 == AnimationBool || Op ? 2 == toggle 
+		if ((event_type == 10 || event_type == 2 || parameter_boolop == 2))
+			return NULL;
+
+	}
+	
 	return original_triggerevent(_this, player, vrc_event, broadcast_type, instigator_id);
 }
 
