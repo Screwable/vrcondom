@@ -1,4 +1,4 @@
-# VRCondom - Prevent malicious actors from "penetrating" your favorite social game's network/security
+# VRCondom
 This is a VRChat modification with the purpose of preventing network-based attacks and other malicious actions done by people.
 
 ### Current Antis
