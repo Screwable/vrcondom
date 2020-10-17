@@ -148,8 +148,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Antis\AntiMasterDC.cpp" />
-    <ClCompile Include="Antis\AntiOwnershipDesync.cpp" />
+    <ClCompile Include="Antis\Events.cpp" />
     <ClCompile Include="Detours\detours.cpp" />
     <ClCompile Include="Detours\disasm.cpp" />
     <ClCompile Include="Detours\modules.cpp" />
@@ -158,8 +157,7 @@
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Antis\AntiMasterDC.h" />
-    <ClInclude Include="Antis\AntiOwnershipDesync.h" />
+    <ClInclude Include="Antis\Events.h" />
     <ClInclude Include="Detours\detours.h" />
     <ClInclude Include="Helpers.h" />
     <ClInclude Include="IL2Cpp.h" />

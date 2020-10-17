@@ -3,8 +3,7 @@
 
 #include "Helpers.h"
 #include "IL2Cpp.h"
-#include "Antis\AntiMasterDC.h"
-#include "Antis\AntiOwnershipDesync.h"
+#include "Antis\Events.h"
 
 void main()
 {
@@ -12,8 +11,7 @@ void main()
 		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 
 	initialize_il2cpp();
-	initialize_anti_master_dc();
-	initialize_anti_ownership_desync();
+	initialize_events();
 
 	//initialize confirmation
 	Beep(500, 200);

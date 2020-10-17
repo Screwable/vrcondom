@@ -45,10 +45,7 @@
     <ClCompile Include="Detours\modules.cpp">
       <Filter>Source Files\Detours</Filter>
     </ClCompile>
-    <ClCompile Include="Antis\AntiMasterDC.cpp">
-      <Filter>Source Files\Antis</Filter>
-    </ClCompile>
-    <ClCompile Include="Antis\AntiOwnershipDesync.cpp">
+    <ClCompile Include="Antis\Events.cpp">
       <Filter>Source Files\Antis</Filter>
     </ClCompile>
   </ItemGroup>
@@ -62,10 +59,7 @@
     <ClInclude Include="Detours\detours.h">
       <Filter>Header Files\Detours</Filter>
     </ClInclude>
-    <ClInclude Include="Antis\AntiMasterDC.h">
-      <Filter>Header Files\Antis</Filter>
-    </ClInclude>
-    <ClInclude Include="Antis\AntiOwnershipDesync.h">
+    <ClInclude Include="Antis\Events.h">
       <Filter>Header Files\Antis</Filter>
     </ClInclude>
   </ItemGroup>
