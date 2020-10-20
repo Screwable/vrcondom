@@ -23,6 +23,9 @@ int trigger_event(uintptr_t _this, uintptr_t player, uintptr_t vrc_event, uint32
 		//10 == SetGameObjectActive || 2 == AnimationBool || Op ? 2 == toggle 
 		if (event_type == 10 || event_type == 2 || parameter_boolop == 2)
 			return NULL;
+		
+		if (event_type == 34 || parameter_string.find("UdonSyncRunProgramAsRPC") != std::string::npos || parameter_string.find("InteractWithStationRPC") != std::string::npos)
+			return NULL;
 
 	}
 	
