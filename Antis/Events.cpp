@@ -17,7 +17,7 @@ int trigger_event(uintptr_t _this, uintptr_t player, uintptr_t vrc_event, uint32
 			return NULL;
 	}
 	
-	//anti world triggers
+	//anti world triggers && anti udon exploits B)
 	if (broadcast_type == 0 || broadcast_type == 4 || broadcast_type == 7)
 	{
 		//10 == SetGameObjectActive || 2 == AnimationBool || Op ? 2 == toggle 
