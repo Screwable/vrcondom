@@ -53,7 +53,7 @@ oneventphoton_fn original_onevent_photon = NULL;
 int on_event_photon(uintptr_t event_data)
 {
 	BYTE event_code = *(BYTE*)(event_data + 16);
-	uint32_t sender = *(BYTE*)(event_data + 32);
+	uint32_t sender = *(uint32_t*)(event_data + 32);
 
 	//anti ownership desync
 	if (anti_ownership_desync && (event_code == 210 || event_code == 209)) //210 and 209 are ownership_request and ownership_transfer, iirc
