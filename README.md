@@ -13,4 +13,7 @@ Update offsets if not updated already <br />
 Compile source as x64 release <br />
 Inject with any injector and enjoy
 
+### Credits
+[MS Detours](https://github.com/microsoft/Detours), licensed with MIT
+
 Feel free to contribute to this project with new Antis and ideas.
