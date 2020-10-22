@@ -155,12 +155,15 @@
     <ClCompile Include="Helpers.cpp" />
     <ClCompile Include="IL2Cpp.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Settings.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Addresses.h" />
     <ClInclude Include="Antis\Events.h" />
     <ClInclude Include="Detours\detours.h" />
     <ClInclude Include="Helpers.h" />
     <ClInclude Include="IL2Cpp.h" />
+    <ClInclude Include="Settings.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
