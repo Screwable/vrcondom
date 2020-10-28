@@ -19,8 +19,8 @@ std::string utf16_to_utf8(std::u16string str)
 
 bool is_local_player(uintptr_t p)
 {
-	using fn = bool(*)(uintptr_t);
-	fn function = (fn)((BYTE*)base + islocalplayer);
-
-	return function(p);
+	uintptr_t result = *(uintptr_t*)(p + 48);
+	if (result)
+		result = *(BYTE*)(result + 36);
+	return result;
 }
