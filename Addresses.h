@@ -1,5 +1,5 @@
-#define triggerevent 0x22092B0 //0x174AEE0
+#define triggerevent 0x205FAA0 //0x22092B0 //0x174AEE0
 
-#define oneventphoton 0x2061640 //0x16D95B0
+#define oneventphoton 0x234AF60 //0x2061640 //0x16D95B0
 
-#define islocalplayer 0x249C460 //0x249CF50 //0x1845BB0 
+#define islocalplayer 0x208C980 //0x249CF50 //0x1845BB0 
