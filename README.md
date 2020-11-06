@@ -1,5 +1,6 @@
 <p align="center">
-    <img align="center" src="logo.png">
+    <img align="center" src="logo.png"> <br />
+    VRChat Modification to fix issues that the Developers won't.
 </p>
 
 ### Current Antis
