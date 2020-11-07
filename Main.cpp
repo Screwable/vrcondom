@@ -11,6 +11,7 @@
 #include "IL2Cpp.h"
 #include "Antis\Events.h"
 #include "Settings.h"
+#include "Other\Console.h"
 
 //dont know where this function is from, possibly stackoverflow(?), either way it works
 std::vector<std::string> split(std::string str)
@@ -35,6 +36,7 @@ void main()
 
 	initialize_il2cpp();
 	initialize_events();
+	initialize_console_fix();
 
 	//initialize confirmation
 	Beep(500, 200);
@@ -51,27 +53,32 @@ void main()
 		if (arguments.at(0) == "log")
 		{
 			extensive_logging = !extensive_logging;
-			printf("Extensive logging was toggled\n");
+			printf((extensive_logging ? "Extensive logging was set to true\n" : "Extensive logging was set to false\n"));
 		}
 		if (arguments.at(0) == "antimasterdc")
 		{
 			anti_master_dc = !anti_master_dc;
-			printf("Anti Master DC was toggled\n");
+			printf((anti_master_dc ? "Anti Master DC was set to true\n" : "Anti Master DC was set to false\n"));
 		}
 		if (arguments.at(0) == "antiownershipdesync")
 		{
 			anti_ownership_desync = !anti_ownership_desync;
-			printf("Anti Ownership Desync was toggled\n");
+			printf((anti_ownership_desync ? "Anti Ownership Desync was set to true\n" : "Anti Ownership Desync was set to false\n"));
 		}
 		if (arguments.at(0) == "antiworldtriggers")
 		{
 			anti_world_triggers = !anti_world_triggers;
-			printf("Anti World Triggers was toggled\n");
+			printf((anti_world_triggers ? "Anti World Triggers was set to true\n" : "Anti World Triggers was set to false\n"));
 		}
 		if (arguments.at(0) == "antiudon")
 		{
 			anti_udon_events = !anti_udon_events;
-			printf("Anti Udon was toggled\n");
+			printf((anti_udon_events ? "Anti Udon was set to true\n" : "Anti Udon was set to false\n"));
+		}
+		if (arguments.at(0) == "allowfriends")
+		{
+			allow_friends = !allow_friends;
+			printf((allow_friends ? "Allow Friend Events was set to true\n" : "Allow Friend Events was set to false\n"));
 		}
 
 		Sleep(1);
@@ -81,6 +88,6 @@ void main()
 bool __stdcall DllMain(HMODULE module, DWORD reason, LPVOID reserved)
 {
 	if (reason == DLL_PROCESS_ATTACH)
-		CreateThread(nullptr, NULL, reinterpret_cast<LPTHREAD_START_ROUTINE>(main), NULL, NULL, nullptr);
+		CreateThread(nullptr, NULL, reinterpret_cast<LPTHREAD_START_ROUTINE>(main), NULL, NULL, nullptr); //reinterpret_cast looks nicer here
 	return true;
 }

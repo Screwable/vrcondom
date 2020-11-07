@@ -9,6 +9,10 @@ Anti Ownership Desync - Prevents bots from spamming ownership requests causing l
 Anti World Triggers - Prevents World Triggers in worlds such as The Box and more <br />
 Anti Udon Events - Prevents exploitation of Udon in a few worlds
 
+### Other features
+Allow Friend Events - Allows your friends to not get affected by any of the Antis provided. <br />
+Console Fix - Prevents your authcookie and numerous other stuff from showing up
+
 ### How to use
 Update offsets if not updated already <br />
 Compile source as x64 release <br />

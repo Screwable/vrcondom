@@ -10,4 +10,8 @@ void hook_function(PVOID* func, PVOID detour);
 
 std::string utf16_to_utf8(std::u16string str);
 
-bool is_local_player(uintptr_t p);
+bool is_local_player(uintptr_t player);
+
+uintptr_t get_player_from_instigator(uint32_t id);
+
+bool is_friend(uintptr_t player);
