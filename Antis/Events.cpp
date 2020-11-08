@@ -19,17 +19,15 @@ int trigger_event(uintptr_t _this, uintptr_t player, uintptr_t vrc_event, uint32
 	DWORD event_type = *(DWORD*)(vrc_event + 24); //VRC_EventHandler.VrcEventType (vrc_event + 0x18/24)
 	std::string parameter_string = il2cpp_string_chars_to_string(*(const char**)(vrc_event + 32)); //ParameterString (vrc_event + 0x20/32)
 	DWORD parameter_boolop = *(DWORD*)(vrc_event + 40); //VRC_EventHandler.VrcEventType (vrc_event + 0x28/40)
+	uintptr_t parameter_object = *(uintptr_t*)(vrc_event + 56); //ParameterObject (vrc_event + 0x38/56)
 
 	//anti master dc
-	if (parameter_string != "empty string")
+	//14 == sendrpc || 19 == addhealth
+	if (anti_master_dc && ((event_type == 14 || event_type == 19) && (parameter_string.length() > 75 || parameter_string.find("color") != std::string::npos)))
 	{
-		//14 == sendrpc || 19 == addhealth
-		if (anti_master_dc && ((event_type == 14 || event_type == 19) && (parameter_string.length() > 75 || parameter_string.find("color") != std::string::npos)))
-		{
-			if (extensive_logging)
-				printf("\nANTI MASTER DC - %u SENT CODE %u\n", instigator_id, event_type);
-			return NULL;
-		}
+		if (extensive_logging)
+			printf("\nANTI MASTER DC - %u SENT CODE %u\n", instigator_id, event_type);
+		return NULL;
 	}
 
 	if (broadcast_type == 0 || broadcast_type == 4 || broadcast_type == 7)
@@ -48,6 +46,25 @@ int trigger_event(uintptr_t _this, uintptr_t player, uintptr_t vrc_event, uint32
 		{
 			if (extensive_logging)
 				printf("\nANTI UDON - %u SENT CODE %u\n", instigator_id, event_type);
+			return NULL;
+		}
+	}
+
+	//anti camera freeze
+	if (anti_camera_freeze && event_type == 14)
+	{
+		if ((parameter_string != "SpawnEmojiRPC" && parameter_string != "PlayEmoteRPC" && parameter_string != "TeleportRPC" && parameter_string != "InteractWithStationRPC") && (get_object_name(parameter_object) == "Indicator" || get_object_name(parameter_object).find("VRCPlayer[Remote]") != std::string::npos))
+		{
+			if (extensive_logging)
+				printf("\nANTI CAMERA FREEZE [2] - %u SENT CODE %u\n", instigator_id, event_type);
+			return NULL;
+		}
+
+		//if something messes up, lets just introduce an extra measure for safety purposes ^^
+		if (parameter_string == "PhotoCapture" || parameter_string == "ChangeVisibility")
+		{
+			if (extensive_logging)
+				printf("\nANTI CAMERA FREEZE [1] - %u SENT CODE %u\n", instigator_id, event_type);
 			return NULL;
 		}
 	}

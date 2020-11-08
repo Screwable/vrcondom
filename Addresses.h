@@ -4,6 +4,8 @@
 
 #define getplayerfrominstigator 0x288BB80
 
+#define getobjectname 0x1632CA0
+
 //for console fix stuff to prevent showing authcookie etc
 #define writeline 0x07BC740
 

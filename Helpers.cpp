@@ -1,6 +1,7 @@
 #include "Helpers.h"
 #include "Detours\detours.h"
 #include "Addresses.h"
+#include "IL2Cpp.h"
 
 void hook_function(PVOID* func, PVOID detour)
 {
@@ -42,4 +43,17 @@ bool is_friend(uintptr_t player)
 		return *(bool*)(api_user + 106); //bool <isFriend>k__BackingField;
 
 	return false;
+}
+
+std::string get_object_name(uintptr_t obj)
+{
+	if (obj != 0)
+	{
+		using fn = const char*(*)(uintptr_t);
+		fn function = (fn)((BYTE*)base + getobjectname);
+
+		return il2cpp_string_chars_to_string(function(obj));
+	}
+	else
+		return "empty string";
 }

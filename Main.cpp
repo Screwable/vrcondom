@@ -75,6 +75,11 @@ void main()
 			anti_udon_events = !anti_udon_events;
 			printf((anti_udon_events ? "Anti Udon was set to true\n" : "Anti Udon was set to false\n"));
 		}
+		if (arguments.at(0) == "anticamerafreeze")
+		{
+			anti_camera_freeze = !anti_camera_freeze;
+			printf((anti_camera_freeze ? "Anti Camera Freeze was set to true\n" : "Anti Camera Freeze was set to false\n"));
+		}
 		if (arguments.at(0) == "allowfriends")
 		{
 			allow_friends = !allow_friends;

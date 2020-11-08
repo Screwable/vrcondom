@@ -15,3 +15,5 @@ bool is_local_player(uintptr_t player);
 uintptr_t get_player_from_instigator(uint32_t id);
 
 bool is_friend(uintptr_t player);
+
+std::string get_object_name(uintptr_t obj);
