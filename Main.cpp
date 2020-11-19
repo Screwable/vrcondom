@@ -85,7 +85,10 @@ void main()
 			allow_friends = !allow_friends;
 			printf((allow_friends ? "Allow Friend Events was set to true\n" : "Allow Friend Events was set to false\n"));
 		}
-
+		if (arguments.at(0) == "help" || arguments.at(0) == "Help")
+		{
+			printf("\nlog :: Extensive logging\n\nantimasterdc :: Toggle Anti Master Disconnect\n\nantiownershipdesync :: Toggle Anti Desync\n\nantiworldtriggers :: Toggle Anti World Triggers\n\nantiudon :: Toggle Anti Udon Events\n\nanticamerafreeze :: Anti Camera Freeze Exploit\n\nallowfriends :: Allow Friends Events\n");
+		}
 		Sleep(1);
 	}
 }
