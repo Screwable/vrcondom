@@ -61,7 +61,7 @@ int trigger_event(uintptr_t _this, uintptr_t player, uintptr_t vrc_event, uint32
 		}
 
 		//if something messes up, lets just introduce an extra measure for safety purposes ^^
-		if (parameter_string == "PhotoCapture" || parameter_string == "ChangeVisibility")
+		if (parameter_string == "PhotoCapture" || parameter_string == "ChangeVisibility" || parameter_string == "TimerBloop")
 		{
 			if (extensive_logging)
 				printf("\nANTI CAMERA FREEZE [1] - %u SENT CODE %u\n", instigator_id, event_type);
