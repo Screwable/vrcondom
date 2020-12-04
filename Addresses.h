@@ -7,5 +7,5 @@
 #define getobjectname 0x2C2B0A0 //0x15818C0 //0x1632CA0
 
 //for console fix stuff to prevent showing authcookie etc
-#define writeline 0x07B6280
+#define writeline 0xF87830 //0x07B6280
 #define stacktrace 0x06C9E90
