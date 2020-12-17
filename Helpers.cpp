@@ -20,12 +20,11 @@ std::string utf16_to_utf8(std::u16string str)
 
 bool is_local_player(uintptr_t player)
 {
-	//ida psuedocode from islocal function
-	uintptr_t result = *(uintptr_t*)(player + 48);
-	if (result)
-		result = *(BYTE*)(result + 36);
+	uintptr_t photon_player = *(uintptr_t*)(player + 48);
+	if (photon_player != 0)
+		return *(bool*)(photon_player + 40);
 
-	return result;
+	return false;
 }
 
 uintptr_t get_player_from_instigator(uint32_t id)
